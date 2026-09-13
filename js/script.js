@@ -67,10 +67,7 @@
       }
     }catch(e){ /* no saved state yet */ }
     hudBudget.textContent = formatRp(state.budget);
-    if(state.completed && state.completed.quest1){
-      // already completed before — show result screen directly
-      showAlreadyDone();
-    }
+    // Quest 1 selalu dimainkan ulang dari awal (title card)
   }
 
   async function saveState(){
