@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT: INTEGRATION — Quest 02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="quest2">
+<div id="game">
+  <div id="scene">
+    <div class="char" id="player-char">
+      <img id="player-img" alt="player">
+    </div>
+    <div id="cart-wrap">
+      <div id="cart-notif">💬 Kamu perlu mengalokasikan budget untuk investasi proyek ini!</div>
+      <button id="cart-btn">🛒<span id="cart-badge">!</span></button>
+    </div>
+  </div>
+
+  <div id="hud">
+    <span>QUEST 02</span>
+    <span class="budget">BUDGET <span id="hud-budget">Rp 0</span></span>
+  </div>
+
+  <div id="shop">
+    <div id="shop-title">PILIH INVESTASI — TAP ICON UNTUK DETAIL</div>
+    <div id="items" class="icon-grid"></div>
+    <button id="finalize-btn">LIHAT LAPORAN INVESTASI</button>
+  </div>
+
+  <div id="info-modal">
+    <div id="info-card">
+      <div class="top">
+        <div class="emoji-big" id="info-emoji"></div>
+        <div>
+          <div class="name" id="info-name"></div>
+          <div class="cost" id="info-cost"></div>
+        </div>
+      </div>
+      <div class="desc" id="info-desc"></div>
+      <div class="warn" id="info-warn" style="display:none;"></div>
+      <div class="actions">
+        <button id="info-close-btn">TUTUP</button>
+        <button id="info-buy-btn">BUY</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast">
+    <div class="t1" id="toast-t1"></div>
+    <div class="t2" id="toast-t2"></div>
+  </div>
+
+  <div id="report">
+    <h1>PROJECT INVESTMENT REPORT</h1>
+    <div class="money-row"><span>Budget</span><span id="r-budget"></span></div>
+    <div class="money-row"><span>Spent</span><span id="r-spent"></span></div>
+    <div class="money-row"><span>Remaining</span><span id="r-remaining"></span></div>
+    <div class="divider"></div>
+    <div class="bar-row"><div class="label"><span>⚡ Process Efficiency</span><span id="v-pe">+0</span></div><div class="bar-outer"><div class="bar-inner" id="b-pe"></div></div></div>
+    <div class="bar-row"><div class="label"><span>😊 User Satisfaction</span><span id="v-us">+0</span></div><div class="bar-outer"><div class="bar-inner" id="b-us"></div></div></div>
+    <div class="bar-row"><div class="label"><span>💾 Data Quality</span><span id="v-dq">+0</span></div><div class="bar-outer"><div class="bar-inner" id="b-dq"></div></div></div>
+    <div class="bar-row"><div class="label"><span>📊 Decision Support</span><span id="v-ds">+0</span></div><div class="bar-outer"><div class="bar-inner" id="b-ds"></div></div></div>
+    <div id="value-score">PROJECT VALUE: 0</div>
+    <div class="flavor">Manfaat yang bisa dipertanggungjawabkan setelah implementasi harus <em>measurable</em> — bukan sekadar "sistem baru terlihat lebih bagus". Setiap rupiah yang kamu belanjakan tadi seharusnya bisa ditunjukkan hasilnya lewat angka-angka di atas.</div>
+    <button id="next-btn">QUEST 03</button>
+  </div>
+
+  <div id="intro">
+    <h2>PROJECT: INTEGRATION</h2>
+    <h1>QUEST 02<br>"INVESTMENT"</h1>
+    <p>Proposalmu disetujui. Anggaran sudah cair.</p>
+    <p>Sekarang kamu masuk ke procurement room — belanjakan budget untuk hal-hal yang benar-benar mendukung keberhasilan proyek. Tidak semua yang terlihat menarik itu bernilai strategis.</p>
+    <button id="enter-btn">NEXT</button>
+  </div>
+
+  <div id="overlay"></div>
+</div>
+
+<script src="js/quest2.js"></script>
+</body>
+</html>

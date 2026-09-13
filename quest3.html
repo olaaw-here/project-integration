@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT: INTEGRATION — Quest 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <body class="quest3">
+    <div id="game">
+        <div id="scene">
+            <div class="grid-floor"></div>
+            <div id="player-fighter" class="fighter">
+            <img id="player-img" alt="player">
+            </div>
+            <div id="monster-fighter" class="fighter">
+            <img class="monster-emoji" id="monster-emoji" alt="monster">
+            </div>
+        </div>
+
+        <div id="hud">
+            <span id="hud-quest">QUEST 03</span>
+            <span id="hud-progress">MONSTER 1 / 4</span>
+        </div>
+
+        <div class="hp-panel player-hp">
+            <div class="who">YOU</div>
+            <div class="hp-bar-outer"><div class="hp-bar-inner" id="player-hp-bar"></div></div>
+            <div class="hp-num" id="player-hp-num">100/100</div>
+        </div>
+        <div class="hp-panel monster-hp">
+            <div class="who" id="monster-hp-label">MONSTER</div>
+            <div class="hp-bar-outer"><div class="hp-bar-inner" id="monster-hp-bar"></div></div>
+            <div class="hp-num" id="monster-hp-num">100/100</div>
+        </div>
+
+        <div id="dialogue-wrap">
+            <div id="dialogue-box">
+            <div id="monster-name">MONSTER</div>
+            <div id="monster-line"></div>
+            <div id="choices"></div>
+            </div>
+        </div>
+
+        <div id="banner">
+            <div class="title" id="banner-title"></div>
+            <div class="sub" id="banner-sub"></div>
+        </div>
+
+        <div class="fs-panel show" id="intro-panel">
+            <h2>PROJECT: INTEGRATION</h2>
+            <h1>QUEST 03<br>"THE RISK DUNGEON"</h1>
+            <p>Setelah investasi dilakukan, celah muncul di lantai ruang server...</p>
+            <p><em>"The Integration Dungeon has appeared."</em></p>
+            <p>Empat monster risiko menghadangmu. Jawab dengan tepat untuk mengalahkan mereka — jawaban salah akan membuatmu diserang balik.</p>
+            <button class="fs-btn" id="start-btn">MASUK DUNGEON</button>
+        </div>
+
+        <div class="fs-panel" id="victory-panel">
+            <h2>PROJECT: INTEGRATION</h2>
+            <h1>🎉 INTEGRATION DUNGEON CLEARED</h1>
+            <p>Semua risiko utama berhasil dimitigasi sebelum implementasi berjalan.</p>
+            <ul class="risk-list" id="risk-summary"></ul>
+            <p style="max-width:400px;">Risiko tidak pernah benar-benar hilang dari proyek — tapi risiko yang dikenali dan dimitigasi sejak awal jauh lebih murah daripada risiko yang meledak di tengah jalan.</p>
+            <button class="fs-btn" id="next-btn">QUEST 04 </button>
+        </div>
+
+        <div class="fs-panel" id="fail-panel">
+            <h2>PROJECT: INTEGRATION</h2>
+            <h1>💥 PROJECT FAILED</h1>
+            <p>HP-mu habis diserang risiko yang tidak dimitigasi dengan tepat.</p>
+            <p>Setiap risiko yang diabaikan atau ditangani asal-asalan akan balik menyerang proyekmu.</p>
+            <button class="fs-btn" id="retry-btn">ULANGI DUNGEON</button>
+        </div>
+
+        <div id="overlay"></div>
+    </div>
+    <script src="js/quest3.js"></script>
+</body>
+</html>

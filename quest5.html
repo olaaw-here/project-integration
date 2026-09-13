@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT: INTEGRATION — Quest 05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="quest5">
+<div id="game">
+  <div id="hud"><span>QUEST 05</span><span id="hud-day">DAY 180 / 180</span></div>
+
+  <!-- INTRO -->
+  <div class="screen show" id="screen-intro">
+    <h2>PROJECT: INTEGRATION</h2>
+    <h1>QUEST 05<br>"THE CONTROL ROOM"</h1>
+    <p>Sistem sudah diluncurkan. Semua keputusanmu dari Quest 1–4 kini terlihat hasilnya.</p>
+    <button class="cr-btn" id="btn-enter-dashboard">BUKA CONTROL ROOM</button>
+    <button id="btn-debug-state" style="margin-top:10px;background:none;border:none;color:#5a6a70;font-family:'VT323',monospace;font-size:15px;text-decoration:underline;cursor:pointer;">🔧 debug: lihat data tersimpan</button>
+    <pre id="debug-output" style="display:none;text-align:left;max-width:100%;overflow-x:auto;background:#000;color:#7fe0a8;padding:10px;font-size:12px;margin-top:10px;white-space:pre-wrap;"></pre>
+  </div>
+
+  <!-- DASHBOARD SNAPSHOT -->
+  <div class="screen" id="screen-dashboard">
+    <div class="crt-title">🖥️ PROJECT CONTROL ROOM</div>
+    <div class="crt-sub">DAY 180 / 180</div>
+    <div id="dashboard-kpis"></div>
+    <div class="question-box">
+      <div class="q">"The system has been launched.<br><em>Is the project successful?</em>"</div>
+    </div>
+    <button class="cr-btn" id="btn-to-quiz">TENTUKAN INDIKATOR KEBERHASILAN</button>
+  </div>
+
+  <!-- INDICATOR QUIZ -->
+  <div class="screen" id="screen-quiz">
+    <div class="crt-title">PILIH INDIKATOR YANG RELEVAN</div>
+    <div class="crt-sub">Centang indikator yang benar-benar mengukur keberhasilan proyek</div>
+    <div class="check-list" id="check-list"></div>
+    <div class="score-note" id="quiz-note"></div>
+    <button class="cr-btn" id="btn-submit-quiz">EVALUASI INDIKATOR</button>
+  </div>
+
+  <!-- METRIC DETAIL -->
+  <div class="screen" id="screen-metrics">
+    <div class="crt-title">HASIL PER INDIKATOR</div>
+    <div class="crt-sub">Setiap angka di sini adalah konsekuensi dari keputusanmu sebelumnya</div>
+    <div id="metric-cards"></div>
+    <button class="cr-btn" id="btn-to-eval">LIHAT PROJECT EVALUATION</button>
+  </div>
+
+  <!-- FINAL EVALUATION -->
+  <div class="screen" id="screen-eval">
+    <div class="crt-title">PROJECT EVALUATION</div>
+    <div id="eval-rows"></div>
+    <div id="score-box">
+      <div class="score-label">PROJECT SCORE</div>
+      <div class="score-num" id="score-num">0 / 100</div>
+      <div class="score-tier" id="score-tier"></div>
+    </div>
+    <button class="cr-btn" id="btn-to-ending">LANJUT KE REKTOR</button>
+  </div>
+
+  <!-- ENDING VN -->
+  <div class="screen" id="screen-ending">
+    <div class="vn-char vn-player" id="vn-player-char"><img id="vn-player-img" alt="player"></div>
+    <div class="vn-char vn-rektor" id="vn-rektor-char"><img id="vn-rektor-img" alt="rektor"></div>
+    <div id="vn-dialogue-wrap">
+      <div id="vn-box">
+        <div id="vn-speaker">REKTOR</div>
+        <div id="vn-text"></div>
+        <div id="vn-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT COMPLETED -->
+  <div class="screen" id="screen-final">
+    <h1>🏆 PROJECT COMPLETED</h1>
+    <p>A successful IT project is not defined by implementation alone.</p>
+    <div class="summary" id="final-summary"></div>
+  </div>
+
+  <div id="overlay"></div>
+</div>
+
+<script src="js/quest5.js"></script>
+</body>
+</html>

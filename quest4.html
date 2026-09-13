@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT: INTEGRATION — Quest 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="game">
+  <div id="scene">
+    <div class="char" id="player-char">
+      <img id="player-img" alt="player">
+    </div>
+  </div>
+
+  <div id="hud">
+    <span>QUEST 04</span>
+    <span class="slots">SLOT <span id="hud-slots">0/5</span></span>
+  </div>
+
+  <div id="recruit-panel">
+    <div id="recruit-title">BUILD YOUR PROJECT TEAM — TAP UNTUK LIHAT DETAIL</div>
+    <div id="items" class="icon-grid"></div>
+    <button id="finalize-btn" disabled>BENTUK TIM</button>
+  </div>
+
+  <div id="info-modal">
+    <div id="info-card">
+      <div class="top">
+        <div class="emoji-big" id="info-emoji"></div>
+        <div>
+          <div class="name" id="info-name"></div>
+          <div class="role" id="info-role"></div>
+        </div>
+      </div>
+      <div class="desc" id="info-desc"></div>
+      <div class="stat-chip-row" id="info-chips"></div>
+      <div class="actions">
+        <button id="info-close-btn">TUTUP</button>
+        <button id="info-select-btn">PILIH</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast">
+    <div class="t1" id="toast-t1"></div>
+    <div class="t2" id="toast-t2"></div>
+  </div>
+
+  <div id="report">
+    <h1>TEAM SYNERGY REPORT</h1>
+    <div id="team-list"></div>
+    <div class="bar-row"><div class="label"><span>💻 Technology</span><span id="v-tech">0</span></div><div class="bar-outer"><div class="bar-inner" id="b-tech"></div></div></div>
+    <div class="bar-row"><div class="label"><span>💾 Data</span><span id="v-data">0</span></div><div class="bar-outer"><div class="bar-inner" id="b-data"></div></div></div>
+    <div class="bar-row"><div class="label"><span>🏛️ Business</span><span id="v-biz">0</span></div><div class="bar-outer"><div class="bar-inner" id="b-biz"></div></div></div>
+    <div class="bar-row"><div class="label"><span>📢 Change</span><span id="v-change">0</span></div><div class="bar-outer"><div class="bar-inner" id="b-change"></div></div></div>
+    <div class="bar-row"><div class="label"><span>🧭 Leadership</span><span id="v-lead">0</span></div><div class="bar-outer"><div class="bar-inner" id="b-lead"></div></div></div>
+    <div id="verdict"></div>
+    <div class="flavor" id="report-flavor"></div>
+    <button id="next-btn">QUEST 05</button>
+  </div>
+
+  <div id="intro">
+    <h2>PROJECT: INTEGRATION</h2>
+    <h1>QUEST 04<br>"ASSEMBLE THE TEAM"</h1>
+    <p>Kamu selamat dari Integration Dungeon. Tapi proyek sebesar ini tidak bisa dikerjakan sendirian.</p>
+    <p><em>"You cannot complete this project alone."</em></p>
+    <p>Masuk ke recruitment room. Pilih 5 anggota tim dari 7 kandidat yang tersedia.</p>
+    <button id="enter-btn">MASUK RECRUITMENT ROOM</button>
+  </div>
+
+  <div id="overlay"></div>
+</div>
+<script src="js/quest4.js"></script>
+</body>
+</html>
