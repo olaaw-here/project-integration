@@ -230,6 +230,13 @@
   }
 
   startBtn.addEventListener('click', ()=>{
+    // Reset seluruh state game ke awal agar quest 2-5 tidak dianggap sudah selesai
+    state = { budget: 0, trust: 100, quest1_attempts: 0, completed: {},
+              purchases: {}, metrics: { pe:0, us:0, dq:0, ds:0 },
+              dungeonHP: 100, team: [],
+              synergy: { tech:0, data:0, biz:0, change:0, lead:0 } };
+    saveState();
+    hudBudget.textContent = formatRp(state.budget);
     titleCard.style.display = 'none';
     setPlayer('normal'); setRektor('normal');
     typeLine(script[0].text, script[0].speaker);

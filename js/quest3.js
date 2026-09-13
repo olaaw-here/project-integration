@@ -35,42 +35,42 @@
   const MONSTER_IMG = 'images/monster.png';
   const monsters = [
     {
-      name:'DATA MIGRATION FAILURE', emoji:'🗃️',
+      name:'KEGAGALAN MIGRASI DATA', emoji:'🗃️',
       line:'"Data dari sistem lama memiliki format berbeda!"',
-      risk:'Data Migration Risk',
+      risk:'Risiko Migrasi Data',
       options:[
         { key:'A', text:'Migrasikan seluruh data sekaligus', correct:false, reply:'Migrasi ngawur tanpa validasi — data korup di tengah jalan!' },
-        { key:'B', text:'Lakukan data mapping, cleansing, testing, dan validation', correct:true, reply:'Pendekatan sistematis. Risiko migrasi berhasil ditekan.' },
+        { key:'B', text:'Lakukan pemetaan data, pembersihan, pengujian, dan validasi', correct:true, reply:'Pendekatan sistematis. Risiko migrasi berhasil ditekan.' },
         { key:'C', text:'Abaikan data lama', correct:false, reply:'Data lama tetap dibutuhkan — mengabaikannya bukan solusi.' },
       ]
     },
     {
-      name:'RESISTANCE TO CHANGE', emoji:'😤',
+      name:'RESISTENSI TERHADAP PERUBAHAN', emoji:'😤',
       line:'"Dosen dan staf menolak menggunakan sistem baru!"',
-      risk:'Resistance to Change',
+      risk:'Risiko Resistensi Perubahan',
       options:[
         { key:'A', text:'Paksa semua pengguna memakainya', correct:false, reply:'Paksaan tanpa pendekatan hanya menambah resistensi.' },
-        { key:'B', text:'Training + komunikasi + stakeholder engagement', correct:true, reply:'Pengguna merasa dilibatkan. Resistensi mulai mereda.' },
+        { key:'B', text:'Pelatihan + komunikasi + keterlibatan pemangku kepentingan', correct:true, reply:'Pengguna merasa dilibatkan. Resistensi mulai mereda.' },
         { key:'C', text:'Biarkan mereka tetap pakai sistem lama', correct:false, reply:'Kalau dibiarkan, sistem baru tidak akan pernah terpakai.' },
       ]
     },
     {
-      name:'BUDGET OVERRUN', emoji:'💸',
+      name:'ANGGARAN MELEBIHI ESTIMASI', emoji:'💸',
       line:'"Biaya proyek ternyata lebih besar dari estimasi!"',
-      risk:'Budget Overrun',
+      risk:'Risiko Pembengkakan Anggaran',
       options:[
         { key:'A', text:'Tambah pengeluaran tanpa evaluasi', correct:false, reply:'Menambah biaya tanpa evaluasi hanya memperbesar lubang anggaran.' },
-        { key:'B', text:'Cost monitoring + prioritization + contingency', correct:true, reply:'Anggaran kembali terkendali dengan cadangan yang jelas.' },
-        { key:'C', text:'Kurangi testing untuk menghemat biaya', correct:false, reply:'Mengorbankan testing hanya memindahkan risiko ke tahap produksi.' },
+        { key:'B', text:'Pemantauan biaya + prioritas + cadangan', correct:true, reply:'Anggaran kembali terkendali dengan cadangan yang jelas.' },
+        { key:'C', text:'Kurangi pengujian untuk menghemat biaya', correct:false, reply:'Mengorbankan pengujian hanya memindahkan risiko ke tahap produksi.' },
       ]
     },
     {
-      name:'SECURITY BREACH', emoji:'🔓',
+      name:'PELANGGARAN KEAMANAN', emoji:'🔓',
       line:'"Ditemukan celah keamanan pada sistem yang baru terintegrasi!"',
-      risk:'Security Breach',
+      risk:'Risiko Keamanan',
       options:[
         { key:'A', text:'Abaikan karena sistem baru saja diluncurkan', correct:false, reply:'Celah yang dibiarkan terbuka adalah undangan untuk serangan berikutnya.' },
-        { key:'B', text:'Security audit, patch vulnerability, perkuat access control', correct:true, reply:'Celah keamanan berhasil ditutup sebelum dieksploitasi.' },
+        { key:'B', text:'Audit keamanan, perbaiki celah, dan perkuat kontrol akses', correct:true, reply:'Celah keamanan berhasil ditutup sebelum dieksploitasi.' },
         { key:'C', text:'Matikan seluruh sistem tanpa investigasi', correct:false, reply:'Mematikan sistem tanpa investigasi hanya menunda masalah, bukan menyelesaikannya.' },
       ]
     },
@@ -193,7 +193,7 @@
         playerFighter.classList.remove('lunge-right');
         monsterFighter.classList.remove('hit-flash');
       }, 420);
-      showBanner('⚔️ CORRECT!', m.risk.toUpperCase() + ' -' + HIT_DAMAGE, false);
+      showBanner('⚔️ BENAR!', m.risk.toUpperCase() + ' -' + HIT_DAMAGE, false);
       mitigated.push(m.risk);
 
       setTimeout(()=>{
@@ -215,7 +215,7 @@
         monsterFighter.classList.remove('lunge-left');
         playerFighter.classList.remove('hit-flash');
       }, 420);
-      showBanner('💥 WRONG DECISION!', opt.reply, true);
+      showBanner('💥 KEPUTUSAN SALAH!', opt.reply, true);
 
       setTimeout(()=>{
         state.dungeonHP = Math.max(0, playerHP);

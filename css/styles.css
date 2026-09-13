@@ -191,7 +191,7 @@
 
   /* ---- feedback banner ---- */
   #banner{
-    position:absolute; left:50%; bottom:34%; z-index:120;
+    position:absolute; left:0; right:0; bottom:25%; z-index:120;
     transform:translateX(-50%) translateY(10px);
     text-align:center;
     opacity:0;
@@ -200,6 +200,7 @@
   }
   #banner.show{ opacity:1; transform:translateX(-50%) translateY(0); }
   #banner .title{
+    position:absolute; left:0; right:0; bottom:55%; z-index:120;
     font-family:'Press Start 2P'; font-size:15px;
     color:var(--gold); text-shadow: 0 0 12px rgba(30, 25, 12, 0.6);
     background: rgba(0,0,0,0.65);
@@ -208,6 +209,7 @@
     display:inline-block;
   }
   #banner .sub{
+    position:absolute; left:0; right:0; bottom:34%; z-index:120;
     font-size:20px; margin-top:8px; color:var(--cream);
     background: rgba(0,0,0,0.6);
     padding:5px 10px;
@@ -859,8 +861,10 @@
     padding:14px 14px 20px;
     min-height:100%;
     height:100%;
+    overflow-y:auto;
   }
   body.quest5 .screen.show{ display:flex; }
+  body.quest5 .screen > .cr-btn{ margin-top:auto; }
 
   /* ---- control room backdrop ---- */
   #screen-dashboard{
@@ -972,13 +976,15 @@
   .vn-char.vn-rektor{ right:12%; width:23%; }
   #vn-dialogue-wrap{ position:absolute; left:0; right:0; bottom:14px; padding:0 10px; z-index:20; }
   #vn-box{
-    background:#12211f; border:3px solid #3d6b5a; padding:12px 14px 14px; position:relative; min-height:80px;
+    background:var(--box-bg); border:3px solid var(--box-border); box-shadow: inset 0 0 0 2px #0a1513;
+    padding:14px 16px 18px; position:relative; min-height:118px;
   }
+  
   #vn-speaker{
-    display:inline-block; font-family:'Press Start 2P'; font-size:10px; color:var(--gold);
-    background:#0d1b1e; border:2px solid #3d6b5a; padding:4px 10px; position:absolute; top:-16px; left:12px;
+    display:inline-block; font-family:'Press Start 2P'; font-size:11px; color:var(--gold);
+    background:var(--bg-deep); border:2px solid var(--box-border); padding:4px 10px; position:absolute; top:-16px; left:12px;
   }
-  #vn-text{ font-size:20px; line-height:1.35; margin-top:8px; color:#f2ead6; }
+  #vn-text{ font-size:22px; line-height:1.35; margin-top:8px; min-height:48px; color:var(--cream); }
   #vn-next{
     position:absolute; right:14px; bottom:10px; width:0; height:0;
     border-left:8px solid transparent; border-right:8px solid transparent; border-top:10px solid var(--gold);

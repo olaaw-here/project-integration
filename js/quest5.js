@@ -91,13 +91,13 @@
   // ================= DASHBOARD SNAPSHOT =================
   function renderDashboard(){
     const rows = [
-      ['💰 Budget Utilization', M.budgetUtil + '%'],
-      ['⏱ Process Efficiency', '+' + M.processEff + '%'],
-      ['😊 User Satisfaction', M.userSat + '%'],
-      ['👥 System Adoption', M.adoption + '%'],
-      ['💾 Data Migration', M.dataQuality + '%'],
-      ['🐛 System Error Rate', '-' + M.errorReduction + '%'],
-      ['🔐 Security Incidents', M.securityIncidents],
+      ['💰 Pemanfaatan Anggaran', M.budgetUtil + '%'],
+      ['⏱ Efisiensi Proses', '+' + M.processEff + '%'],
+      ['😊 Kepuasan Pengguna', M.userSat + '%'],
+      ['👥 Adopsi Sistem', M.adoption + '%'],
+      ['💾 Migrasi Data', M.dataQuality + '%'],
+      ['🐛 Tingkat Error Sistem', '-' + M.errorReduction + '%'],
+      ['🔐 Insiden Keamanan', M.securityIncidents],
     ];
     document.getElementById('dashboard-kpis').innerHTML = rows.map(r=>
       `<div class="kpi-row"><span class="kpi-name">${r[0]}</span><span class="kpi-val">${r[1]}</span></div>`
@@ -107,13 +107,13 @@
   // ================= INDICATOR QUIZ =================
   const indicators = [
     { id:'features', text:'Jumlah fitur yang dibuat', correct:false },
-    { id:'proctime', text:'Waktu proses akademik', correct:true, metric:'processEff', label:'⏱ Process Efficiency' },
-    { id:'satisfaction', text:'Kepuasan pengguna', correct:true, metric:'userSat', label:'😊 User Satisfaction' },
-    { id:'adoption', text:'Tingkat adopsi', correct:true, metric:'adoption', label:'👥 Adoption Rate' },
-    { id:'errors', text:'Jumlah error', correct:true, metric:'errorReduction', label:'🐛 Error Rate', invert:true },
-    { id:'dataquality', text:'Kualitas data', correct:true, metric:'dataQuality', label:'💾 Data Quality' },
-    { id:'usage', text:'Penggunaan sistem', correct:true, metric:'reliability', label:'🛠️ System Reliability' },
-    { id:'cost', text:'Biaya proyek', correct:true, metric:'budgetUtil', label:'💰 Cost Performance', invert:true },
+    { id:'proctime', text:'Waktu proses akademik', correct:true, metric:'processEff', label:'⏱ Efisiensi Proses' },
+    { id:'satisfaction', text:'Kepuasan pengguna', correct:true, metric:'userSat', label:'😊 Kepuasan Pengguna' },
+    { id:'adoption', text:'Tingkat adopsi', correct:true, metric:'adoption', label:'👥 Tingkat Adopsi' },
+    { id:'errors', text:'Jumlah error', correct:true, metric:'errorReduction', label:'🐛 Tingkat Error', invert:true },
+    { id:'dataquality', text:'Kualitas data', correct:true, metric:'dataQuality', label:'💾 Kualitas Data' },
+    { id:'usage', text:'Penggunaan sistem', correct:true, metric:'reliability', label:'🛠️ Keandalan Sistem' },
+    { id:'cost', text:'Biaya proyek', correct:true, metric:'budgetUtil', label:'💰 Kinerja Biaya', invert:true },
     { id:'uicolor', text:'Warna tampilan aplikasi', correct:false },
     { id:'newpc', text:'Jumlah komputer baru', correct:false },
   ];
@@ -189,23 +189,23 @@
 
       const warnEl = ()=> document.getElementById('warn-'+ind.id);
       if(ind.metric === 'userSat' && !M.hasTraining){
-        warnEl().innerHTML = '⚠️ <b>WARNING</b> — User satisfaction di bawah target.<br>Possible cause: Insufficient user training.';
+        warnEl().innerHTML = '⚠️ <b>PERINGATAN</b> — Kepuasan pengguna di bawah target.<br>Penyebab: Pelatihan pengguna belum memadai.';
         warnEl().classList.add('show');
       }
       if(ind.metric === 'adoption' && !M.hasTraining){
-        warnEl().innerHTML = '⚠️ <b>WARNING</b> — User adoption is below target.<br>Possible cause: Insufficient user training (Quest 02).';
+        warnEl().innerHTML = '⚠️ <b>PERINGATAN</b> — Adopsi pengguna masih di bawah target.<br>Penyebab: Pelatihan pengguna belum cukup (Quest 02).';
         warnEl().classList.add('show');
       }
       if(ind.metric === 'dataQuality' && !M.hasCleansing){
-        warnEl().innerHTML = '⚠️ <b>WARNING</b> — Data inconsistencies detected.<br>Project benefit realization: AT RISK. Data cleansing tidak pernah dibeli di Quest 02.';
+        warnEl().innerHTML = '⚠️ <b>PERINGATAN</b> — Terdeteksi ketidakkonsistenan data.<br>Realisasi manfaat proyek: BERISIKO. Pembersihan data tidak pernah dibeli di Quest 02.';
         warnEl().classList.add('show');
       }
       if(ind.metric === 'reliability' && !M.hasInfra){
-        warnEl().innerHTML = '⚠️ <b>WARNING</b> — Infrastruktur belum cukup kuat untuk menjamin skalabilitas jangka panjang.';
+        warnEl().innerHTML = '⚠️ <b>PERINGATAN</b> — Infrastruktur belum cukup kuat untuk menjamin skalabilitas jangka panjang.';
         warnEl().classList.add('show');
       }
       if(ind.metric === 'processEff' && M.hp < 60){
-        warnEl().innerHTML = '⚠️ <b>WARNING</b> — Banyak risiko yang tertangani secara reaktif, bukan preventif, sehingga efisiensi proses belum maksimal.';
+        warnEl().innerHTML = '⚠️ <b>PERINGATAN</b> — Banyak risiko yang tertangani secara reaktif, bukan preventif, sehingga efisiensi proses belum maksimal.';
         warnEl().classList.add('show');
       }
     });
@@ -220,11 +220,11 @@
     const kpiOk = indicatorScore >= 6;
 
     const rows = [
-      ['Strategic Alignment', strategicOk],
-      ['Expected Benefits', benefitsOk],
-      ['Risk Management', riskOk],
-      ['Critical Resources', resourceOk],
-      ['Performance Indicators', kpiOk],
+      ['Kesesuaian Strategis', strategicOk],
+      ['Manfaat yang Diharapkan', benefitsOk],
+      ['Manajemen Risiko', riskOk],
+      ['Sumber Daya Kritis', resourceOk],
+      ['Indikator Kinerja', kpiOk],
     ];
     document.getElementById('eval-rows').innerHTML = rows.map(r=>
       `<div class="eval-row"><span>${r[0]}</span><span class="mark ${r[1]?'pass':'fail'}">${r[1]?'✓':'⚠'}</span></div>`
@@ -244,9 +244,9 @@
     }, 20);
 
     let tier, tierClass;
-    if(score >= 80){ tier = '🏆 SUCCESS'; tierClass = 'success'; }
-    else if(score >= 60){ tier = '⚠️ PARTIAL SUCCESS'; tierClass = 'partial'; }
-    else { tier = '❌ PROJECT AT RISK'; tierClass = 'risk'; }
+    if(score >= 80){ tier = '🏆 BERHASIL'; tierClass = 'success'; }
+    else if(score >= 60){ tier = '⚠️ BERHASIL SEBAGIAN'; tierClass = 'partial'; }
+    else { tier = '❌ PROYEK BERISIKO'; tierClass = 'risk'; }
     tierEl.textContent = tier;
     tierEl.className = 'score-tier ' + tierClass;
 
@@ -262,26 +262,26 @@
   // ================= ENDING VN =================
   const vnScripts = {
     success: [
-      { speaker:'REKTOR', text:'"So... did we succeed?"' },
-      { speaker:'KAMU', text:'"Yes. But not simply because the system was launched."' },
-      { speaker:'REKTOR', text:'"Then why?"' },
-      { speaker:'KAMU', text:'"Because we achieved the strategic objectives, realized measurable benefits, controlled the risks, allocated the right resources, and monitored the outcomes."' },
+      { speaker:'REKTOR', text:'"Jadi... apakah kita berhasil?"' },
+      { speaker:'KAMU', text:'"Ya. Tapi bukan hanya karena sistem sudah diluncurkan."' },
+      { speaker:'REKTOR', text:'"Lalu kenapa?"' },
+      { speaker:'KAMU', text:'"Karena kita mencapai tujuan strategis, menghasilkan manfaat yang terukur, mengendalikan risiko, mengalokasikan sumber daya yang tepat, dan memantau hasilnya."' },
     ],
     partial: [
-      { speaker:'REKTOR', text:'"So... did we succeed?"' },
-      { speaker:'KAMU', text:'"Partly. The system is running, but some things fell short."' },
-      { speaker:'REKTOR', text:'"Such as?"' },
-      { speaker:'KAMU', text:'"A few indicators are still below target — but we know exactly which ones, and why."' },
-      { speaker:'REKTOR', text:'"Then it is not finished yet."' },
-      { speaker:'KAMU', text:'"No. But now we know precisely what to fix next."' },
+      { speaker:'REKTOR', text:'"Jadi... apakah kita berhasil?"' },
+      { speaker:'KAMU', text:'"Sebagian. Sistem sudah berjalan, tapi ada beberapa hal yang masih kurang."' },
+      { speaker:'REKTOR', text:'"Contohnya?"' },
+      { speaker:'KAMU', text:'"Beberapa indikator masih di bawah target — tapi kita tahu persis yang mana dan alasannya."' },
+      { speaker:'REKTOR', text:'"Jadi ini belum selesai."' },
+      { speaker:'KAMU', text:'"Benar. Tapi sekarang kita tahu apa yang harus diperbaiki selanjutnya."' },
     ],
     risk: [
-      { speaker:'REKTOR', text:'"So... did we succeed?"' },
-      { speaker:'KAMU', text:'"The system launched. That is not the same as succeeding."' },
-      { speaker:'REKTOR', text:'"What went wrong?"' },
-      { speaker:'KAMU', text:'"We underinvested in the people and risk side of this project — and it shows in almost every indicator."' },
-      { speaker:'REKTOR', text:'"Then what happens now?"' },
-      { speaker:'KAMU', text:'"We go back, fix the gaps, and prove the benefits properly before calling this done."' },
+      { speaker:'REKTOR', text:'"Jadi... apakah kita berhasil?"' },
+      { speaker:'KAMU', text:'"Sistem sudah diluncurkan. Itu bukan berarti berhasil."' },
+      { speaker:'REKTOR', text:'"Apa yang salah?"' },
+      { speaker:'KAMU', text:'"Kita kurang berinvestasi pada sisi manusia dan risiko proyek ini — dan itu terlihat di hampir semua indikator."' },
+      { speaker:'REKTOR', text:'"Lalu apa yang terjadi sekarang?"' },
+      { speaker:'KAMU', text:'"Kita kembali, perbaiki celahnya, dan buktikan manfaatnya dengan benar sebelum menyebutnya selesai."' },
     ],
   };
   let vnScript = vnScripts.success;
@@ -344,17 +344,17 @@
     const titleEl = document.querySelector('#screen-final h1');
     const taglineEl = document.querySelector('#screen-final p');
     if(isSuccess){
-      titleEl.textContent = '🏆 PROJECT COMPLETED';
-      taglineEl.textContent = 'A successful IT project is not defined by implementation alone.';
+      titleEl.textContent = '🏆 PROYEK SELESAI';
+      taglineEl.textContent = 'Proyek TI yang berhasil tidak ditentukan hanya oleh implementasi saja.';
     } else if(isPartial){
-      titleEl.textContent = '⚠️ PROJECT COMPLETED — WITH GAPS';
-      taglineEl.textContent = 'Launching the system is the easy part. Proving its value is not.';
+      titleEl.textContent = '⚠️ PROYEK SELESAI — DENGAN CELAH';
+      taglineEl.textContent = 'Meluncurkan sistem itu mudah. Membuktikan nilainya itu yang sulit.';
     } else {
-      titleEl.textContent = '❌ PROJECT AT RISK';
-      taglineEl.textContent = 'A system that runs is not the same as a project that succeeds.';
+      titleEl.textContent = '❌ PROYEK BERISIKO';
+      taglineEl.textContent = 'Sistem yang berjalan bukan berarti proyek itu berhasil.';
     }
     document.getElementById('final-summary').innerHTML = `
-      <div>PROJECT SCORE: ${state.finalScore} / 100</div>
+      <div>SKOR PROYEK: ${state.finalScore} / 100</div>
       <div>${state.finalTier}</div>
     `;
   }

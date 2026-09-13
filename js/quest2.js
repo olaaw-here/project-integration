@@ -22,15 +22,15 @@
   let state = { budget: DEFAULT_BUDGET, trust: 100, completed:{}, purchases:{} };
 
   const items = [
-    { id:'training', icon:'🧑‍🏫', name:'User Training', cost:500000000,
+    { id:'training', icon:'🧑‍🏫', name:'Pelatihan Pengguna', cost:500000000,
       desc:'Invest ini untuk melatih dosen dan staff supaya nggak gagap pakai sistem baru — biar adopsinya lancar dan nggak banyak yang balik ke cara manual.',
-      benefits:['Meningkatkan adoption','Mengurangi resistance'], trap:false },
-    { id:'cleansing', icon:'🧹', name:'Data Cleansing', cost:700000000,
+      benefits:['Meningkatkan adopsi','Mengurangi resistensi'], trap:false },
+    { id:'cleansing', icon:'🧹', name:'Pembersihan Data', cost:700000000,
       desc:'Invest ini untuk membersihkan dan merapikan data lama sebelum dipindah ke sistem baru — biar laporan dan keputusan nggak salah gara-gara data kotor.',
       benefits:['Meningkatkan kualitas data','Mengurangi kesalahan migrasi'], trap:false },
     { id:'infra', icon:'🖥️', name:'Infrastruktur', cost:1000000000,
       desc:'Invest ini untuk server dan jaringan yang lebih kuat — biar sistem nggak lemot atau down saat dipakai banyak orang sekaligus.',
-      benefits:['Meningkatkan system reliability','Mendukung scalability'], trap:false },
+      benefits:['Meningkatkan keandalan sistem','Mendukung skalabilitas'], trap:false },
     { id:'gedung', icon:'🏢', name:'Gedung Kantor Baru', cost:1500000000,
       desc:'Invest ini untuk gedung kantor yang lebih mewah dan nyaman.',
       benefits:['Kantor lebih nyaman', 'Terlihat modern'], trap:true,
@@ -38,7 +38,7 @@
     { id:'logo', icon:'🎨', name:'Logo Universitas Baru', cost:300000000,
       desc:'Invest ini untuk mengganti logo universitas biar terlihat lebih "modern".',
       benefits:['Tampilan lebih segar'], trap:true,
-      warn:'Not a Strategic Benefit — nggak berkaitan sama sekali dengan efisiensi proses atau kualitas layanan.' },
+      warn:'Bukan manfaat strategis — nggak berkaitan sama sekali dengan efisiensi proses atau kualitas layanan.' },
   ];
 
   const hudBudget = document.getElementById('hud-budget');
@@ -104,7 +104,7 @@
     infoCard.classList.toggle('trap', !!item.trap);
     const buyBtn = document.getElementById('info-buy-btn');
     buyBtn.classList.toggle('bought', bought);
-    buyBtn.textContent = bought ? 'DIBELI ✓' : 'BUY';
+    buyBtn.textContent = bought ? 'DIBELI ✓' : 'BELI';
     buyBtn.disabled = bought || item.cost > state.budget;
     infoModal.classList.add('show');
   }
@@ -125,7 +125,7 @@
     renderItems();
     saveState();
     if(item.trap){
-      showToast('⚠ NOT A STRATEGIC BENEFIT', `You spent ${formatRp(item.cost)} — direct project benefit: +0`);
+      showToast('⚠ BUKAN MANFAAT STRATEGIS', `Kamu menghabiskan ${formatRp(item.cost)} — manfaat proyek langsung: +0`);
       state.trust = Math.max(0, (state.trust ?? 100) - 10);
     }
   }
@@ -164,7 +164,7 @@
     const t = setInterval(()=>{
       n += 3;
       if(n >= target){ n = target; clearInterval(t); }
-      document.getElementById('value-score').textContent = 'PROJECT VALUE: ' + n;
+      document.getElementById('value-score').textContent = 'NILAI PROYEK: ' + n;
     }, 30);
 
     state.completed = state.completed || {};

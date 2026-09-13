@@ -25,25 +25,25 @@
   let selected = [];
 
   const candidates = [
-    { id:'it', image:'images/player-1.png', icon:'👨‍💻', name:'IT Specialist', role:'TECHNOLOGY',
+    { id:'it', image:'images/player-1.png', icon:'👨‍💻', name:'Spesialis IT', role:'TEKNOLOGI',
       desc:'Menguasai pengembangan dan integrasi sistem — orang yang benar-benar membangun platformnya.',
       stats:{ tech:5, data:2, biz:0, change:0, lead:1 } },
-    { id:'academic', image:'images/player-2.png', icon:'👩‍🏫', name:'Academic Representative', role:'BUSINESS PROCESS',
+    { id:'academic', image:'images/player-2.png', icon:'👩‍🏫', name:'Perwakilan Akademik', role:'PROSES BISNIS',
       desc:'Memahami proses akademik dari sisi pengguna nyata — dosen, mahasiswa, dan aturan akademik.',
       stats:{ tech:0, data:1, biz:4, change:2, lead:1 } },
-    { id:'pm', image:'images/player-3.png', icon:'👨‍💼', name:'Project Manager', role:'LEADERSHIP',
+    { id:'pm', image:'images/player-3.png', icon:'👨‍💼', name:'Manajer Proyek', role:'KEPEMIMPINAN',
       desc:'Mengatur timeline, koordinasi tim, dan memastikan proyek tetap pada jalurnya.',
       stats:{ tech:1, data:0, biz:2, change:2, lead:5 } },
-    { id:'security', image:'images/player-4.png', icon:'🔐', name:'Security Specialist', role:'TECHNOLOGY',
+    { id:'security', image:'images/player-4.png', icon:'🔐', name:'Spesialis Keamanan', role:'TEKNOLOGI',
       desc:'Menjaga keamanan data dan sistem dari celah yang bisa dieksploitasi.',
       stats:{ tech:3, data:2, biz:1, change:0, lead:0 } },
-    { id:'data', image:'images/player-5.png', icon:'💾', name:'Data Specialist', role:'DATA',
+    { id:'data', image:'images/player-5.png', icon:'💾', name:'Spesialis Data', role:'DATA',
       desc:'Menangani migrasi, kebersihan, dan struktur data lintas sistem lama dan baru.',
       stats:{ tech:1, data:6, biz:0, change:0, lead:1 } },
-    { id:'change', image:'images/player-6.png', icon:'📢', name:'Change Management', role:'CHANGE',
+    { id:'change', image:'images/player-6.png', icon:'📢', name:'Manajemen Perubahan', role:'PERUBAHAN',
       desc:'Membantu pengguna beradaptasi dengan sistem baru lewat komunikasi dan pelatihan.',
       stats:{ tech:0, data:0, biz:1, change:6, lead:1 } },
-    { id:'finance', image:'images/player-7.png', icon:'💰', name:'Financial Officer', role:'BUSINESS',
+    { id:'finance', image:'images/player-7.png', icon:'💰', name:'Pejabat Keuangan', role:'BISNIS',
       desc:'Mengawasi anggaran, pengeluaran, dan memastikan proyek tetap sesuai budget.',
       stats:{ tech:0, data:1, biz:5, change:1, lead:2 } },
   ];
@@ -107,7 +107,7 @@
   function closeInfo(){ infoModal.classList.remove('show'); activeCandidate = null; }
 
   function statLabel(k){
-    return { tech:'💻 TECH', data:'💾 DATA', biz:'🏛️ BIZ', change:'📢 CHANGE', lead:'🧭 LEAD' }[k] || k;
+    return { tech:'💻 TEK', data:'💾 DATA', biz:'🏛️ BISNIS', change:'📢 PERUB', lead:'🧭 KEPIM' }[k] || k;
   }
 
   document.getElementById('info-close-btn').addEventListener('click', closeInfo);
@@ -173,11 +173,11 @@
     const verdictEl = document.getElementById('verdict');
     const flavorEl = document.getElementById('report-flavor');
     if(selected.length === MAX_SLOTS && weak.length === 0){
-      verdictEl.textContent = 'TEAM READY ✓';
+      verdictEl.textContent = 'TIM SIAP ✓';
       verdictEl.className = 'ready';
       flavorEl.textContent = 'Tim ini punya kombinasi kompetensi teknis dan non-teknis yang seimbang — bukan cuma programmer, tapi juga orang yang paham proses bisnis, perubahan, dan kepemimpinan proyek.';
     } else {
-      verdictEl.textContent = '⚠️ CRITICAL RESOURCE GAP';
+      verdictEl.textContent = '⚠️ KEKURANGAN SUMBER DAYA KRITIS';
       verdictEl.className = 'gap';
       const weakNames = weak.map(d=> d.key).join(', ') || 'beberapa area';
       flavorEl.textContent = `Timmu terlalu berat sebelah. Area yang lemah: ${weakNames}. Proyek integrasi butuh lebih dari sekadar kemampuan teknis — kalau sisi bisnis, perubahan, atau kepemimpinan diabaikan, implementasi bisa gagal walau sistemnya sendiri berjalan baik.`;
