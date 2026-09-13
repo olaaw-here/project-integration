@@ -36,14 +36,43 @@
     image-rendering: pixelated;
   }
   @media (max-width:640px){
-    #game{ aspect-ratio: 9/16; max-width:100vw; border:none; box-shadow:none; }
-    #dialogue-wrap{ top:8%; max-height:90%; padding:8px; }
-    #dialogue-box{ padding:10px 12px 14px; min-height:80px; }
-    #dialogue-text{ font-size:18px; min-height:36px; }
-    .choice-btn{ font-size:16px; padding:7px 10px; }
+    html, body{ height:100%; }
+    body{ overflow:hidden; }
+    #game{
+      width:100vw;
+      height:100dvh;
+      max-width:100vw;
+      max-height:100dvh;
+      aspect-ratio:auto;
+      border:none;
+      box-shadow:none;
+    }
+    #scene{ top:30px; }
+    #dialogue-wrap{
+      top:auto;
+      bottom:10px;
+      max-height:42%;
+      padding:8px;
+      gap:6px;
+    }
+    #dialogue-box{ padding:12px 12px 16px; min-height:88px; }
+    #speaker{ font-size:9px; top:-13px; left:10px; }
+    #dialogue-text{ font-size:clamp(18px, 4.5vw, 22px); line-height:1.28; min-height:34px; }
+    #skip-hint{ right:6px; bottom:-1px; font-size:7px; }
+    .choice-btn{ font-size:16px; padding:8px 10px; }
     #choices{ gap:5px; }
-    .char.player{ width:18%; left:6%; }
-    .char.rektor{ width:19%; right:3%; }
+    .char.player{ width:24%; left:6%; bottom:7%; }
+    .char.rektor{ width:25%; right:4%; bottom:8%; }
+    .speech-cue{ left:18%; width:28px; height:28px; font-size:12px; }
+    #title-card{ padding:18px 16px; }
+    #title-card h2{ font-size:9px; }
+    #title-card h1{ font-size:clamp(20px, 7vw, 34px); }
+    #title-card p{ font-size:clamp(17px, 4.5vw, 20px); max-width:90%; }
+    #start-btn{ font-size:10px; padding:12px 18px; }
+    #result{ padding:20px 18px; }
+    #result h1{ font-size:11px; }
+    #result .line, #result .flavor{ font-size:18px; }
+    #budget-count{ font-size:22px; }
   }
 
   /* ---- scanline / vignette overlay ---- */
@@ -66,9 +95,32 @@
     font-size:10px;
     color:var(--gold);
     letter-spacing:1px;
+    gap:8px;
   }
   #hud .budget{ color:var(--cream); font-size:10px; }
   #hud .budget span{ color:var(--gold); }
+  #music-toggle-btn{
+    appearance:none;
+    background:rgba(0,0,0,0.35);
+    border:1px solid var(--gold-dim);
+    color:var(--gold);
+    font-family:'Press Start 2P', monospace;
+    font-size:10px;
+    line-height:1;
+    min-width:30px;
+    height:24px;
+    padding:4px 6px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:2px;
+    margin-left:auto;
+  }
+  body.quest5 #music-toggle-btn{
+    border-color:var(--cyan);
+    color:var(--cyan);
+  }
 
   /* ---- scene ---- */
   #scene{
@@ -609,6 +661,148 @@
     #game{ aspect-ratio:9/16; max-width:100vw; border:none; box-shadow:none; }
   }
 
+  @media (max-width:640px){
+    body.quest2 #game{
+      width:100vw;
+      height:100dvh;
+      max-width:100vw;
+      max-height:100dvh;
+      aspect-ratio:auto;
+      border:none;
+      box-shadow:none;
+    }
+    body.quest2 #scene{
+      top:30px;
+      background-position:center center;
+    }
+    body.quest2 #hud{
+      padding:8px 10px;
+      font-size:9px;
+    }
+    body.quest2 #hud .budget{ font-size:9px; }
+    body.quest2 #cart-wrap{
+      right:4%;
+      bottom:10%;
+      transform:scale(.9);
+      transform-origin:right bottom;
+    }
+    body.quest2 #shop{
+      padding:8px 8px 10px;
+      bottom:4px;
+    }
+    body.quest2 #shop-title{
+      font-size:8px;
+      line-height:1.5;
+      margin-bottom:6px;
+    }
+    body.quest2 .icon-grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:8px;
+    }
+    body.quest2 .icon-btn{
+      aspect-ratio:1.05/1;
+      padding:5px 4px;
+    }
+    body.quest2 .icon-btn .emoji{ font-size:22px; }
+    body.quest2 .icon-btn .label{ font-size:11px; }
+    body.quest2 .icon-btn .cost-tag{ font-size:7px; }
+    body.quest2 #finalize-btn{ font-size:9px; padding:11px; }
+    body.quest2 #intro,
+    body.quest2 #report{ padding:18px 16px; }
+    body.quest2 #intro h1{ font-size:18px; }
+    body.quest2 #intro p{ font-size:17px; }
+    body.quest2 #report h1{ font-size:11px; }
+    body.quest2 #report .money-row{ font-size:16px; }
+    body.quest2 #report .bar-row .label{ font-size:13px; }
+    body.quest2 #report .flavor{ font-size:16px; }
+    body.quest2 #report #next-btn{ font-size:10px; padding:12px 16px; }
+  }
+
+  @media (max-width:640px){
+    body #game{
+      width:100vw;
+      height:100dvh;
+      max-width:100vw;
+      max-height:100dvh;
+      aspect-ratio:auto;
+      border:none;
+      box-shadow:none;
+    }
+    #hud{
+      padding:8px 10px;
+      font-size:9px;
+    }
+    #recruit-panel{
+      padding:8px 8px 10px;
+      bottom:10px;
+    }
+    #recruit-title{
+      font-size:8px;
+      line-height:1.5;
+      margin-bottom:6px;
+    }
+    .icon-grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:8px;
+      width:100%;
+      max-width:100%;
+    }
+    .icon-btn{
+      aspect-ratio:1/1.08;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      padding:3px 2px 4px;
+      overflow:hidden;
+      gap:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+    }
+    .icon-btn .emoji{
+      font-size:20px;
+      margin:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      line-height:0;
+    }
+    .icon-btn .emoji img{
+      max-width:80%;
+      height:auto;
+      display:block;
+      margin:0 auto;
+    }
+    .icon-btn .label{
+      font-size:6px;
+      line-height:1;
+      min-width:0;
+      width:100%;
+      margin-top:0;
+      white-space:normal;
+      text-align:center;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      hyphens:auto;
+    }
+    #finalize-btn{ font-size:9px; padding:10px 8px; }
+    #info-card{ padding:14px 12px 16px; }
+    #info-card .top{ gap:8px; }
+    #info-card .emoji-big{ font-size:28px; }
+    #info-card .name{ font-size:16px; }
+    #info-card .role{ font-size:11px; }
+    #info-card .desc{ font-size:16px; }
+    #report{ padding:18px 12px; }
+    #report h1{ font-size:11px; }
+    #report .bar-row .label{ font-size:13px; }
+    #report .flavor{ font-size:16px; }
+    #intro{ padding:18px 14px; }
+    #intro h1{ font-size:18px; }
+    #intro p{ font-size:17px; }
+  }
+
 /* ---- quest1_rev styles ---- */
 
   :root{
@@ -692,11 +886,13 @@
     background:var(--panel); border:2px solid var(--panel-border);
     aspect-ratio:1/1.06;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:6px; cursor:pointer;
+    gap:0;
+    margin:0;
+    padding:5px 6px 6px; cursor:pointer;
   }
   .icon-btn:hover{ border-color:var(--gold-dim); }
   .icon-btn .emoji{ font-size:26px; }
-  .icon-btn .label{ font-size:11px; text-align:center; line-height:1.1; color:var(--cream); margin-top:3px; }
+  .icon-btn .label{ font-size:11px; text-align:center; line-height:1.1; color:var(--cream); margin-top:0; margin-bottom:2px; }
   .icon-btn.selected{ border-color:var(--success); background:#173322; }
   .icon-btn.selected::after{
     content:'✓'; position:absolute; top:3px; right:4px;
@@ -727,7 +923,7 @@
   #info-card .top{ display:flex; align-items:center; gap:12px; }
   #info-card .emoji-big{ font-size:38px; flex-shrink:0; }
   #info-card .emoji-big img{ width:64px; height:64px; object-fit:contain; image-rendering:pixelated; display:block; }
-  .icon-btn .emoji img{ width:82px; height:82px; object-fit:contain; image-rendering:pixelated; display:block; margin:0 auto; }
+  .icon-btn .emoji img{ width:82px; object-fit:contain; image-rendering:pixelated; display:block; margin:0 auto; }
   #team-list img{ width:16px; height:auto; vertical-align:middle; image-rendering:pixelated; margin-right:4px; }
   #info-card .name{ font-size:21px; color:var(--gold); line-height:1.1; }
   #info-card .role{ font-size:13px; color:var(--gold-dim); font-family:'Press Start 2P'; margin-top:4px; }
@@ -860,9 +1056,23 @@
     min-height:100%;
     height:100%;
     overflow-y:auto;
+    justify-content:flex-start;
   }
   body.quest5 .screen.show{ display:flex; }
-  body.quest5 .screen > .cr-btn{ margin-top:auto; }
+  body.quest5 .screen > .cr-btn{ margin-top:20px; }
+  body.quest5 #screen-intro{
+    justify-content:center;
+    gap:12px;
+  }
+  body.quest5 #screen-intro h2,
+  body.quest5 #screen-intro h1,
+  body.quest5 #screen-intro p,
+  body.quest5 #screen-intro .cr-btn {
+    margin:0;
+  }
+  body.quest5 #screen-intro .cr-btn {
+    margin-top:8px;
+  }
 
   /* ---- control room backdrop ---- */
   #screen-dashboard{
@@ -887,7 +1097,7 @@
   .kpi-row .kpi-val{ font-family:'Press Start 2P'; font-size:11px; color:var(--cyan); }
 
   .cr-btn{
-    margin-top:14px; align-self:center;
+    margin-top:0px; align-self:center;
     font-family:'Press Start 2P'; font-size:11px;
     background:transparent; color:var(--cyan); border:2px solid var(--cyan);
     padding:12px 20px; cursor:pointer;
