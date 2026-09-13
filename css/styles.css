@@ -200,7 +200,6 @@
   }
   #banner.show{ opacity:1; transform:translateX(-50%) translateY(0); }
   #banner .title{
-    position:absolute; left:0; right:0; bottom:55%; z-index:120;
     font-family:'Press Start 2P'; font-size:15px;
     color:var(--gold); text-shadow: 0 0 12px rgba(30, 25, 12, 0.6);
     background: rgba(0,0,0,0.65);
@@ -209,7 +208,6 @@
     display:inline-block;
   }
   #banner .sub{
-    position:absolute; left:0; right:0; bottom:34%; z-index:120;
     font-size:20px; margin-top:8px; color:var(--cream);
     background: rgba(0,0,0,0.6);
     padding:5px 10px;

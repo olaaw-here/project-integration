@@ -107,7 +107,7 @@
   function closeInfo(){ infoModal.classList.remove('show'); activeCandidate = null; }
 
   function statLabel(k){
-    return { tech:'💻 TEK', data:'💾 DATA', biz:'🏛️ BISNIS', change:'📢 PERUB', lead:'🧭 KEPIM' }[k] || k;
+    return { tech:'💻 TECh', data:'💾 DATA', biz:'🏛️ BISNIS', change:'📢 CHANGE', lead:'🧭 LEAD' }[k] || k;
   }
 
   document.getElementById('info-close-btn').addEventListener('click', closeInfo);
